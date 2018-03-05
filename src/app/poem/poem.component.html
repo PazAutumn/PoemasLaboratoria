@@ -1,4 +1,4 @@
 <div *ngFor="let verso of versos">
-    <p *ngIf="mostrarVersos">{{verso}}</p>
+    <app-verso [verso]="verso"></app-verso>
 </div>
 <input type="button" (click)="onMostrarClick()" value="Mostrar">

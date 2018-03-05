@@ -7,6 +7,11 @@
     <label>Verso
       <input class="form-control" formControlName="contenido">
     </label>
+
+    <label>Indice
+      <input class="form-control" formControlName="indice">
+    </label>
 </form>
 
 <p>Verso : {{versoForm.value | json}} | {{versoForm.status}}</p>
+<p>Verso real real : {{verso | json}}</p>

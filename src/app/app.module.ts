@@ -6,13 +6,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PoemComponent } from './poem/poem.component';
 import { VersoFormComponent } from './verso-form/verso-form.component';
+import { VersoComponent } from './verso/verso.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PoemComponent,
-    VersoFormComponent
+    VersoFormComponent,
+    VersoComponent
   ],
   imports: [
     ReactiveFormsModule,
