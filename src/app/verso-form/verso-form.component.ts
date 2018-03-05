@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Verso } from '../verso';
 
@@ -9,6 +9,7 @@ import { Verso } from '../verso';
 })
 export class VersoFormComponent implements OnInit {
   @Input() verso:Verso = new Verso();
+  @Output() submit = new EventEmitter<Verso>()
   versoForm:FormGroup;
 
   constructor(private fb:FormBuilder) {
@@ -19,7 +20,17 @@ export class VersoFormComponent implements OnInit {
   }
 
   ngOnChanges(){
-    console.log("Verso Form " + JSON.stringify(this.versoForm));
+
+  }
+
+  onAgregarVerso(){
+    if(this.versoForm.valid){
+      let newVerso = new Verso();
+      newVerso.nombreJugador = this.verso.nombreJugador;
+      newVerso.contenido = this.verso.contenido;
+      this.submit.emit(newVerso);
+      this.versoForm.reset();
+    }
   }
 
   createForm(){
@@ -27,6 +38,11 @@ export class VersoFormComponent implements OnInit {
       jugador : [this.verso.nombreJugador, [Validators.required, Validators.minLength(4)]],
       contenido : [this.verso.contenido],
       indice:[0, Validators.min(0)]
+    });
+
+    this.versoForm.valueChanges.subscribe(()=>{
+      this.verso.nombreJugador = this.versoForm.value.jugador;
+      this.verso.contenido = this.versoForm.value.contenido;
     });
   }
 }

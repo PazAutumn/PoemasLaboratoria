@@ -11,6 +11,8 @@
     <label>Indice
       <input class="form-control" formControlName="indice">
     </label>
+
+    <input type="button" value="Agregar verso" (click)="onAgregarVerso()">
 </form>
 
 <p>Verso : {{versoForm.value | json}} | {{versoForm.status}}</p>

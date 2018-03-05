@@ -21,6 +21,10 @@ export class PoemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(verso:Verso){
+    this.versos.push(verso);
+  }
+
   onMostrarClick(){
     this.onMostrar.emit({
       mostrar : !this.mostrarVersos,
