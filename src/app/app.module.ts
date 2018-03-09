@@ -12,11 +12,13 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './register/register.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
-
+import { AuthService } from './auth.service';
 
 //Componentes externos
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +36,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
 
     //Componentes externos
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   entryComponents:[
     RegisterComponent,

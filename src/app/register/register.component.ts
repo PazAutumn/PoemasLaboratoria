@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { RegisterModalComponent } from '../register-modal/register-modal.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,23 +10,35 @@ import { RegisterModalComponent } from '../register-modal/register-modal.compone
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public authService:AuthService) {
 
   }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(RegisterModalComponent, {
       width: '250px',
-      data: {}
+      data: {
+        email : '',
+        password : ''
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.authService.signup(result.email, result.password);
     });
   }
 
   ngOnInit() {
-    this.openDialog();
+    
   }
 
+  ngAfterViewInit()	{
+    this.authService.user.subscribe((user)=>{
+      if(user){
+        //Todavía no
+      }else{
+        this.openDialog();
+      }
+    });
+  }
 }
