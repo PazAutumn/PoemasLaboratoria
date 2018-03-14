@@ -18,6 +18,7 @@ import { AuthService } from './auth.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     VersoFormComponent,
     VersoComponent,
     RegisterComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    LoginModalComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -44,7 +46,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   bootstrap: [AppComponent],
   entryComponents:[
     RegisterComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    LoginModalComponent,
+    AppComponent
   ]
 })
 export class AppModule { }
