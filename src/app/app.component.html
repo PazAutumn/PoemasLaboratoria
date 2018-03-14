@@ -1,4 +1,7 @@
-<app-register></app-register>
+<input type="button" value="Login" (click)="onLoginClick()">
+<input type="button" value="Registrar" (click)="onRegisterClick()">
+<app-register *ngIf="modalRegister"></app-register>
+<app-login-modal *ngIf="modalLogin"></app-login-modal>
 <div style="text-align:center">
     <h1>
         Welcome to {{ title }}!
