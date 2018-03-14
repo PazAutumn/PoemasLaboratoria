@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 
 
 import { AppComponent } from './app.component';
@@ -15,9 +16,9 @@ import { RegisterModalComponent } from './register-modal/register-modal.componen
 import { AuthService } from './auth.service';
 
 //Componentes externos
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
@@ -42,7 +43,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFireDatabase],
   bootstrap: [AppComponent],
   entryComponents:[
     RegisterComponent,
@@ -51,4 +52,5 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     AppComponent
   ]
 })
+
 export class AppModule { }

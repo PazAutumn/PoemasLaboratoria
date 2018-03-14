@@ -25,4 +25,16 @@ export class AuthService {
         console.log("TODO SE FUE A LA B > "+error);
       })
   }
+
+  login(email:string, password:string){
+    this.firebaseAuth
+    .auth
+    .signInWithEmailAndPassword(email, password)
+    .then((value)=>{
+      console.log("Success!! ah-ha : ", value);
+    })
+    .catch((error)=>{
+      console.log("TODO SE FUE A LA B > "+error);
+    })
+  }
 }
