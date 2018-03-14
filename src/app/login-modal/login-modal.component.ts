@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class LoginModalComponent implements OnInit {
   userForm:FormGroup;
 
-  constructor(private fb:FormBuilder, public dialogRef: MatDialogRef<RegisterModalComponent>,
+  constructor(private fb:FormBuilder, public dialogRef: MatDialogRef<LoginModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
